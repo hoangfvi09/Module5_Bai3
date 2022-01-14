@@ -1,0 +1,11 @@
+
+
+<button (click)="colorRed()">Red</button>
+<button (click)="colorGreen()">Green</button>
+<button (click)="colorOrange()">Orange</button>
+<p [style.color]="color">hvi xinh</p>
+<p>------------------------------</p>
+<input type="range" min="0" max="255" value="100" [(ngModel)]="redIndex" >
+<input type="range" min="0" max="255" value="100" [(ngModel)]="greenIndex"  >
+<input type="range" min="0" max="255" value="100" [(ngModel)]="blueIndex" >
+<div  style="height: 100px" [style.background-color]="colorr"></div>
