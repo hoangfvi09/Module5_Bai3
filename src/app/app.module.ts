@@ -12,6 +12,8 @@ import { ColorComponent } from './color/color.component';
 import { ArticleComponent } from './article/article.component';
 import { LikeComponent } from './like/like.component';
 import { BirthdayComponent } from './birthday/birthday.component';
+import { NameCardComponent } from './name-card/name-card.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BirthdayComponent } from './birthday/birthday.component';
     ColorComponent,
     ArticleComponent,
     LikeComponent,
-    BirthdayComponent
+    BirthdayComponent,
+    NameCardComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
