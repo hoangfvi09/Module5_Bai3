@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {Product} from '../product';
+import {ProductComponent} from "../product/product.component";
 
 @Component({
   selector: 'app-form',
@@ -8,8 +10,9 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class FormComponent implements OnInit {
  formDemo = new FormGroup({
+   id: new FormControl(),
    name: new FormControl(),
-   age: new FormControl()
+   price: new FormControl()
 
  })
   constructor() { }
@@ -18,6 +21,8 @@ export class FormComponent implements OnInit {
   }
   create (){
    console.log(this.formDemo.value)
+
+
   }
 
 }
