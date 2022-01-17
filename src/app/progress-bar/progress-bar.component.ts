@@ -6,9 +6,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./progress-bar.component.css']
 })
 export class ProgressBarComponent implements OnInit {
-  @Input() backgroundColor = '#D9D9D9';
-  @Input() progressColor = '#4CAF50';
-  @Input() progress = 0;
+  backgroundColor = '#D9D9D9';
+  progressColor = '#4CAF50';
+  @Input() progress!: number;
 
   constructor() {
   }
