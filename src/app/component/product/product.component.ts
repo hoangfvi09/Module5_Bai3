@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../product";
+import {Product} from "../../model/product";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -10,22 +10,23 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class ProductComponent implements OnInit {
   productList: Product [] = [
     {
-    id: '1',
+    id: 1,
     name: 'ip 1',
-    price: '1000'
-  },{
-    id: '2',
-    name: 'ip 2',
-    price: '1000'
-  },{
-    id: '3',
-    name: 'ip 3',
-    price: '1000'
-  },{
-    id: '4',
-    name: 'ip 4',
-    price: '1000'
-  },
+    price: 1000
+  }
+  // ,{
+  //   id: '2',
+  //   name: 'ip 2',
+  //   price: '1000'
+  // },{
+  //   id: '3',
+  //   name: 'ip 3',
+  //   price: '1000'
+  // },{
+  //   id: '4',
+  //   name: 'ip 4',
+  //   price: '1000'
+  // },
   ]
 
   formDemo = new FormGroup({

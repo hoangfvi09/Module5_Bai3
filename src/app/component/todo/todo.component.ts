@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Todo} from "../todo";
+import {Todo} from "../../model/todo";
 import {FormControl} from "@angular/forms";
 let _id = 1;
 
