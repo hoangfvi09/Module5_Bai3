@@ -25,6 +25,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { DictPageComponent } from './dictionary/dict-page/dict-page.component';
 import { WordDetailComponent } from './dictionary/word-detail/word-detail.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WordDetailComponent } from './dictionary/word-detail/word-detail.compon
     ProductListComponent,
     ProductCreateComponent,
     DictPageComponent,
-    WordDetailComponent
+    WordDetailComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
