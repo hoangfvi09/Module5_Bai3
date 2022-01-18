@@ -1,0 +1,118 @@
+<form [formGroup]="form" (submit)="register()"
+      class="col-md-6 offset-md-3">
+  <div class="form-group row">
+    <label class="col">
+      Email
+      <input type="email" class="form-control"
+             formControlName="email">
+    </label>
+    <div class="col alert alert-danger" role="alert"
+         *ngIf="form.controls['email'].errors?.['required']
+         && form.controls['email'].touched">
+      Email is required!
+    </div>
+    <div class="col alert alert-danger" role="alert"
+         *ngIf="form.controls['email'].errors?.['email']
+         && form.controls['email'].touched">
+      Not a valid email
+    </div>
+  </div>
+
+    <div class="form-group row">
+      <label class="col">
+        Password
+        <input type="password" class="form-control"
+               formControlName="pw">
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['pw'].errors?.['required']
+         && form.controls['pw'].touched">
+        Password is required!
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Confirm Password
+        <input type="password" class="form-control"
+               formControlName="confirmPw">
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['confirmPw'].errors?.['required']
+         && form.controls['confirmPw'].touched">
+        Confirm Password is required!
+      </div>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['confirmPw'].value != form.controls['pw'].value
+         && form.controls['confirmPw'].touched">
+        Confirm Password doesnt match
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Country
+        <select class="form-control" formControlName="country">
+          <option class="form-control" [value]="'Vn'" selected="selected">Vn</option>
+          <option class="form-control" [value]="'Jp'">Jp</option>
+          <option class="form-control" [value]="'Cn'">Cn</option>
+        </select>
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['country'].errors?.['required']
+         && form.controls['country'].touched">
+        Country is required!
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Gender: <br>
+
+        <input type="radio" id="male" formControlName="gender" value="Male">
+        <label for="male">male</label>
+        <input type="radio" id="female" formControlName="gender" value="Female">
+        <label for="male">female</label><br>
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['gender'].errors?.['required']
+         && form.controls['gender'].touched">
+        Gender is required!
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Phone:
+        <input type="text" class="form-control"
+               formControlName="phone">
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['phone'].errors?.['required']
+         && form.controls['phone'].touched">
+        Phone is required!
+      </div>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['phone'].errors?.['pattern']
+         && form.controls['phone'].touched">
+        Invalid Phone Number
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Age:
+        <input type="number" class="form-control"
+               formControlName="age">
+      </label>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['age'].errors?.['required']
+         && form.controls['age'].touched">
+        Age is required!
+      </div>
+      <div class="col alert alert-danger" role="alert"
+           *ngIf="form.controls['age'].errors?.['min']
+         && form.controls['age'].touched">
+        Age is greater than 16!
+      </div>
+    </div>
+
+  <div class="form-group">
+    <button class="btn btn-info" type="submit" [disabled]="!form.valid">Submit</button>
+  </div>
+</form>

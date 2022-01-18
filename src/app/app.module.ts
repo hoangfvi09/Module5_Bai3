@@ -17,6 +17,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { FormComponent } from './form/form.component';
 import { TodoComponent } from './todo/todo.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TodoComponent } from './todo/todo.component';
     ProgressBarComponent,
     RatingBarComponent,
     FormComponent,
-    TodoComponent
+    TodoComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
