@@ -6,6 +6,8 @@ import {YoutubePlaylistComponent} from "./component/youtube-playlist/youtube-pla
 import {YoutubePlayerComponent} from "./component/youtube-player/youtube-player.component";
 import {ProductListComponent} from "./product/product-list/product-list.component";
 import {ProductCreateComponent} from "./product/product-create/product-create.component";
+import {DictPageComponent} from "./dictionary/dict-page/dict-page.component";
+import {WordDetailComponent} from "./dictionary/word-detail/word-detail.component";
 
 
 
@@ -29,6 +31,14 @@ const routes: Routes = [
   {
     path: 'product/create',
     component: ProductCreateComponent
+  },
+  {
+    path: 'dictionary',
+    component: DictPageComponent,
+    children: [{
+      path: ':word',
+      component: WordDetailComponent
+    }]
   }
 
 ];

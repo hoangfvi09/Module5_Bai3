@@ -13,12 +13,26 @@ export class DictionaryService {
     word: 'dog',
     mean: 'cho'},
     {
-    word: 'cat',
-    mean: 'meo`'},
+    word: 'elephant',
+    mean: 'voi'},
     {
-    word: 'cat',
-    mean: 'meo`'},
+    word: 'mouse',
+    mean: 'chuo^t.'},
+    {
+    word: 'chicken',
+    mean: 'ga`'},
+    {
+    word: 'pig',
+    mean: 'lo?n.'},
   ]
 
   constructor() { }
+  showList(){
+    return this.wordList;
+  }
+
+  translate(word: String){
+    return this.wordList.find(item =>item.word === word)
+  }
+
 }

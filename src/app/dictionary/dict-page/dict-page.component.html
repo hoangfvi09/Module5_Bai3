@@ -1,0 +1,8 @@
+<h2>Word List</h2>
+<ul>
+  <li *ngFor="let engWord of wordList">
+    <a [routerLink]="['/dictionary', engWord.word]">{{engWord.mean}}</a>
+  </li>
+</ul>
+
+<div><router-outlet></router-outlet></div>
