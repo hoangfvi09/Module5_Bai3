@@ -20,8 +20,6 @@ export class ProductListComponent implements OnInit {
       this.products = result
       console.log(result)
 
-    }, error => {
-      console.log(error)
     });
   }
 
@@ -30,8 +28,6 @@ export class ProductListComponent implements OnInit {
       this.products = result
       console.log(result)
 
-    }, error => {
-      console.log(error)
     });
   }
 

@@ -14,6 +14,15 @@
       <td><input type="number" formControlName="price" [value]="product.price"></td>
     </tr>
     <tr>
+    <td>Category</td>
+    <td>
+      <select formControlName="category" [value]="product.category?.id">
+<!--        <option selected="selected" [value]="product.category?.id">{{product.category?.name}}</option>-->
+        <option *ngFor="let category of categoryList" [value]="category.id">{{category.name}}</option>
+      </select>
+    </td>
+    </tr>
+    <tr>
       <td>Mô tả về sản phẩm</td>
       <td><input type="text" formControlName="description"  [value]="product.description"></td>
     </tr>

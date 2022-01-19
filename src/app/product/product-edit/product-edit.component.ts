@@ -3,6 +3,8 @@ import {Product} from '../../model/product';
 import {ProductService} from "../../service/product.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {Category} from "../../model/category";
+import {CategoryService} from "../../service/category.service";
 
 @Component({
   selector: 'app-product-edit',
@@ -11,9 +13,10 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 })
 export class ProductEditComponent implements OnInit {
   product: Product = {id: 0, price: 0, name: '', description: ''}
+  categoryList: Category[] = []
 
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router, private fb: FormBuilder) {
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router, private fb: FormBuilder, private categoryService: CategoryService) {
   }
 
   productForm: FormGroup = this.fb.group({
@@ -21,6 +24,7 @@ export class ProductEditComponent implements OnInit {
     name: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
+    category: new FormControl(),
   });
 
   ngOnInit() {
@@ -33,9 +37,13 @@ export class ProductEditComponent implements OnInit {
         console.log(result)
         this.productForm.setValue(this.product)
         console.log(this.product)
+
       });
 
     });
+    this.categoryService.getAll().subscribe(result => {
+      this.categoryList = result
+    })
     // this.product = {id: 0, price: 0, name: '', description: ''}
   }
 
@@ -43,10 +51,18 @@ export class ProductEditComponent implements OnInit {
     const product = this.productForm.value
     console.log(product)
     console.log(product.id)
-    this.productService.updateProduct(product.id, product).subscribe(result => {
+    let newProduct = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      description: product.description,
+      category: product.category
+    }
+    this.productService.updateProduct(product.id, newProduct).subscribe(result => {
       console.log(result)
+      this.router.navigate(["/product/list"])
     })
-    this.router.navigate(["/product/list"])
+
   }
 
 }

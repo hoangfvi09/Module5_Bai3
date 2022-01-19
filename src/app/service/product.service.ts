@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Product} from "../model/product";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 const API_URL = 'http://localhost:8080/products'
 @Injectable({
   providedIn: 'root'
