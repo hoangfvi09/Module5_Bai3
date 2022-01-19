@@ -12,7 +12,7 @@ export class ProductCreateComponent implements OnInit {
 
 
   productForm: FormGroup = new FormGroup({
-    id: new FormControl(),
+
     name: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
@@ -26,8 +26,11 @@ export class ProductCreateComponent implements OnInit {
 
   submit() {
     const product = this.productForm.value;
-    this.productService.saveProduct(product);
-    this.productForm.reset();
+    this.productService.saveProduct(product).subscribe(result => {
+      console.log(result)
+    },error => {
+      console.log(error)
+    });
     this.router.navigate(["/product/list"])
   }
 

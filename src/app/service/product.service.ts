@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Product} from "../model/product";
-
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+const API_URL = 'http://localhost:8080/products'
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
 
   products: Product[] = [{
@@ -37,37 +39,58 @@ export class ProductService {
 
   }];
 
-  getAll() {
-    return this.products;
+  getAll(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL);
   }
 
-  saveProduct(product: Product) {
-    let found = false
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === product.id) {
-        this.products[i] = product
-        found = true
-      }
-    }
-    if (!found) {
-      this.products.push(product);
-    }
+  saveProduct(product: Product): Observable<Product> {
+    // let found = false
+    // for (let i = 0; i < this.products.length; i++) {
+    //   if (this.products[i].id === product.id) {
+    //     this.products[i] = product
+    //     found = true
+    //   }
+    // }
+    // if (!found) {
+    //   this.products.push(product);
+    // }
+    console.log(product)
+    return this.httpClient.post<Product>(API_URL,product);
+
+  }
+  updateProduct(id: string, product: Product): Observable<Product> {
+    // let found = false
+    // for (let i = 0; i < this.products.length; i++) {
+    //   if (this.products[i].id === product.id) {
+    //     this.products[i] = product
+    //     found = true
+    //   }
+    // }
+    // if (!found) {
+    //   this.products.push(product);
+    // }
+    return this.httpClient.put<Product>(API_URL+`/${id}`,product);
+
 
   }
 
-  deleteProduct(id: any) {
+  deleteProduct(id: any):Observable<any> {
+    // console.log(id)
+    // let productList: Product[] = []
+    // for (let i = 0; i < this.products.length; i++) {
+    //   if (this.products[i].id != id) {
+    //     productList.push(this.products[i])
+    //   }
+    // }
+    // this.products = productList
     console.log(id)
-    let productList: Product[] = []
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id != id) {
-        productList.push(this.products[i])
-      }
-    }
-    this.products = productList
+
+   return this.httpClient.delete(API_URL+`/${id}`)
   }
 
-  findById(id: any) {
-    return this.products.find(item => item.id == id)
+  findById(id: any):  Observable<Product> {
+    // return this.products.find(item => item.id == id)
+    return this.httpClient.get<Product>(API_URL+`/${id}`);
 
   }
 

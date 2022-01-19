@@ -26,6 +26,7 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { DictPageComponent } from './dictionary/dict-page/dict-page.component';
 import { WordDetailComponent } from './dictionary/word-detail/word-detail.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

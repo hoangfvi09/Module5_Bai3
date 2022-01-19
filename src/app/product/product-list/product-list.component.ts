@@ -15,17 +15,34 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAll();
+    // this.getAll();
+    this.productService.getAll().subscribe(result => {
+      this.products = result
+      console.log(result)
+
+    }, error => {
+      console.log(error)
+    });
   }
 
   getAll() {
-    this.products = this.productService.getAll();
+    this.productService.getAll().subscribe(result => {
+      this.products = result
+      console.log(result)
+
+    }, error => {
+      console.log(error)
+    });
   }
 
   delete(id:any){
-    this.productService.deleteProduct(id)
-    // this.router.navigate(["/product/list"])
-    this.getAll();
+    this.productService.deleteProduct(id).subscribe(result => {
+      console.log(result)
+      // this.router.navigate(["/product/list"])
+      this.getAll()
+    })
+
+
   }
 
 
